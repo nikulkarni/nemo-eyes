@@ -1,0 +1,18 @@
+{
+  "driver": {
+    "browser": "chrome"
+  },
+  "data": {
+    "baseUrl": "https://www.paypal.com",
+    "eyes" : {
+      "apiKey" : "yourAPIKey",
+      "width" : 800,
+      "height" : 600
+    }
+  },
+  "plugins": {
+    "nemo-eyes": {
+      "module": "path:./nemo-eyes"
+    }
+  }
+}
