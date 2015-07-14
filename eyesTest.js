@@ -16,9 +16,9 @@ var nemo = Nemo(__dirname, function (err) {
         });
 
     nemo.driver.get(nemo.data.baseUrl);
-    nemo.eyesHandler.open('sampleApp','homePageTest');
-    nemo.eyesHandler.checkWindow("PayPal Home Page");
-    nemo.eyesHandler.close().then(function(obj){
+    nemo.eyes.open('sampleApp','homePageTest');
+    nemo.eyes.checkWindow("PayPal Home Page");
+    nemo.eyes.close().then(function(obj){
         console.dir(obj);
     });
     nemo.driver.quit();
