@@ -18,8 +18,8 @@ var nemo = Nemo(__dirname, function (err) {
     nemo.driver.get(nemo.data.baseUrl);
     nemo.eyes.open('Sample Application','Homepage test');
     nemo.eyes.checkWindow("PayPal Home Page");
-    nemo.eyes.close().then(function(obj){
-        console.dir(obj);
+    nemo.eyes.close().then(function(testResults){
+        console.dir(testResults);
     });
     nemo.driver.quit();
 });
