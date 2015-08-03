@@ -1,7 +1,18 @@
 {
-  "name": "application-name",
+  "name": "nemo-eyes",
   "version": "0.0.1",
   "devDependencies": {
+    "eyes.selenium": "^0.0.36",
     "nemo": "^1.0.5"
-  }
+  },
+  "contributors": [
+    {
+      "name": "Nilesh Kulkarni",
+      "email": "nikulkarni@paypal.com"
+    },
+    {
+      "name": "Daniel Puterman",
+      "email": ""
+    }
+  ]
 }
