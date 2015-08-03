@@ -5,7 +5,7 @@
   "data": {
     "baseUrl": "https://www.paypal.com",
     "eyes" : {
-      "apiKey" : "eQsHc6lPejfKXs3cfMCmhjpxoQou1108XHMumRoDE0Aw8110",
+      "apiKey" : "yourAPIKey",
       "log" : true
     }
   },
