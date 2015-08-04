@@ -37,6 +37,7 @@ A [nemo](https://github.com/paypal/nemo) plugin for automated visual testing usi
 ```
 ### How to use
 Once nemo-eyes plugin is registered, `eyes` namespace will be attached to `nemo` and methods for visual testing are exposed. Idea is to,
+
 1. Initialize your application and test using `nemo.eyes.open('Sample Application','Homepage test');`
 2. Trigger a visual check using `nemo.eyes.checkWindow("PayPal Home Page");`.
 If base image for the window in question is present, new screenshot will be compared against it. Otherwise new screenshot will be saved as a base image
