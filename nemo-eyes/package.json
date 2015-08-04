@@ -1,7 +1,0 @@
-{
-  "name": "nemo-eyes",
-  "version": "0.0.1",
-  "dependencies": {
-    "eyes.selenium": "^0.0.36"
-  }
-}

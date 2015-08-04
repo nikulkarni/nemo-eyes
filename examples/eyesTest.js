@@ -3,7 +3,7 @@
  */
 
 var Nemo = require("nemo"),
-    __dirname = process.cwd();
+    __dirname = process.cwd()+'/examples';
 
 var nemo = Nemo(__dirname, function (err) {
     //always check for errors!
@@ -16,10 +16,12 @@ var nemo = Nemo(__dirname, function (err) {
         });
 
     nemo.driver.get(nemo.data.baseUrl);
+
     nemo.eyes.open('Sample Application','Homepage test');
     nemo.eyes.checkWindow("PayPal Home Page");
-    nemo.eyes.close().then(function(testResults){
-        console.dir(testResults);
+    nemo.eyes.close().then( function(testResults){
+        console.log(testResults.isPassed);
+        console.log(testResults.url);
     });
     nemo.driver.quit();
 });
