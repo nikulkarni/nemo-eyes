@@ -5,6 +5,18 @@
     "eyes.selenium": "^0.0.36",
     "nemo": "^1.0.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikulkarni/nemo-eyes.git"
+  },
+  "peerDependencies": {
+    "nemo": "^1.0.0"
+  },
+  "keywords": [
+    "Nemo",
+    "visual testing",
+    "applitools"
+  ],
   "contributors": [
     {
       "name": "Nilesh Kulkarni",
