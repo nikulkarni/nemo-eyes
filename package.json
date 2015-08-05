@@ -1,9 +1,9 @@
 {
   "name": "nemo-eyes",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "devDependencies": {
     "eyes.selenium": "^0.0.36",
-    "nemo": "^1.0.5"
+    "nemo": "^1.0.6"
   },
   "repository": {
     "type": "git",
