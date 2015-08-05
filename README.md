@@ -27,9 +27,9 @@ A [nemo](https://github.com/paypal/nemo) plugin for automated visual testing usi
   "data": {
     ...
      "eyes" : {
-          "apiKey" : "yourAPIKey",      /* Required */
-          "width" : 800,                /* Required */
-          "height" : 600,               /* Required */
+          "apiKey" : "yourAPIKey",      /* Required,  */
+          "width" : 800,                /* Required, format - Number */
+          "height" : 600,               /* Required, format - Number */
           "log" : true                  /* Optional */
      }
   }
