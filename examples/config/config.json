@@ -6,7 +6,10 @@
     "baseUrl": "https://www.paypal.com",
     "eyes" : {
       "apiKey" : "yourAPIKey",
-      "log" : true
+      "log" : true,
+      "width" : 800,
+      "height" : 600,
+      "fullPageScreenShot" : true
     }
   },
   "plugins": {

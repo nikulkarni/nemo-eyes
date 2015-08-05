@@ -10,6 +10,10 @@ module.exports = {
     "setup": function (nemo, callback) {
         nemo.eyes = new Eyes();
         nemo.eyes.setApiKey(nemo.data.eyes.apiKey);
+
+        if(nemo.data.eyes.fullPageScreenShot) {
+            nemo.eyes.setForceFullPageScreenshot(true);
+        }
         if (nemo.data.eyes.log) {
             nemo.eyes.setLogHandler(new LogHandler(true));
         }
