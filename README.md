@@ -55,6 +55,6 @@ If base image for the window in question is present, new screenshot will be comp
 ```
 ### Running a sample visual test using Applitools.
 1. In order to run a test you need to have an [Applitools account](https://applitools.com/sign-up/) (free track is available).
-1. Copy your API key from the [tutorial page](https://eyes.applitools.com/app/tutorial) (choose "Automated visual tests", then scroll down to step 4), and set it in nemo `config/config.json` file.
+1. Copy your API key from the [tutorial page](https://eyes.applitools.com/app/tutorial) (choose "Automated visual tests", then scroll down to step 4), and set it in nemo `examples/config/config.json` file.
 1. go to the repository's root folder and run `node examples/eyesTest.js`
 
