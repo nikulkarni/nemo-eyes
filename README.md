@@ -8,7 +8,7 @@ A [nemo](https://github.com/paypal/nemo) plugin for automated visual testing usi
 ```javascript
 	...
     "nemo": "^1.0.0",
-    "nemo-eyes": "^0.0.1",
+    "nemo-eyes": "^0.0.4",
 	...
 ```
 
