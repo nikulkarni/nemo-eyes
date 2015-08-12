@@ -37,8 +37,7 @@ A [nemo](https://github.com/paypal/nemo) plugin for automated visual testing usi
 }
 ```
 
-Note `fullPageScreenShot` option in `eyes` configuration above. Safari and Chrome take only 'viewport' screenshots and not full page screenshots.
-If you set `fullPageScreenShot` to `true`, AppliTools takes full page screenshots for safari and chrome for you to visually compare pages. IE and Firefox drivers do take full page screenshots.
+Note `fullPageScreenShot` option in `eyes` configuration above. Safari and Chrome take only 'viewport' screenshots and not full page screenshots.If you set `fullPageScreenShot` to `true`, AppliTools takes full page screenshots for safari and chrome for you to visually compare pages. IE and Firefox drivers do take full page screenshots.
 
 ### How to use
 Once nemo-eyes plugin is registered, `eyes` namespace will be attached to `nemo` and methods for visual testing are exposed. Idea is to,
