@@ -1,8 +1,10 @@
 {
   "name": "nemo-eyes",
-  "version": "0.0.3",
-  "devDependencies": {
-    "eyes.selenium": "^0.0.36",
+  "version": "0.0.4",
+  "dependencies": {
+    "eyes.selenium": "^0.0.36"
+  },
+  "devDependencies" : {
     "nemo": "^1.0.6"
   },
   "repository": {
@@ -24,7 +26,7 @@
     },
     {
       "name": "Daniel Puterman",
-      "email": ""
+      "email": "daniel.puterman@applitools.com"
     }
   ]
 }
