@@ -1,7 +1,7 @@
 # nemo-eyes
 A [nemo](https://github.com/paypal/nemo) plugin for automated visual testing using [Applitools Eyes](https://applitools.com/).
 
-### Installation
+## Installation
 
 1. Add dependencies to package.json and install.
 
@@ -20,26 +20,28 @@ A [nemo](https://github.com/paypal/nemo) plugin for automated visual testing usi
     ...
   },
   "plugins": {
-    "view": {
-      "module": "nemo-eyes"
+    "eyes": {
+      "module": "path:../",
+      "arguments": [
+        {
+          "sdk": {
+            "setApiKey": "env:applitools_api_key",
+            "setBatch": "desktop",
+            "setForceFullPageScreenshot": true
+          },
+          "viewport": {
+            "width": 1200,
+            "height": 600
+          },
+          "mock": "env:applitools_mock"
+        }
+      ]
     }
-  },
-  "data": {
-    ...
-     "eyes" : {
-          "apiKey" : "yourAPIKey",      /* Required,  */
-          "width" : 800,                /* Required, format - Number */
-          "height" : 600,               /* Required, format - Number */
-          "log" : true                  /* Optional */
-          "fullPageScreenShot" : true   /* Optional */
-     }
   }
 }
 ```
 
-Note `fullPageScreenShot` option in `eyes` configuration above. Safari and Chrome take only 'viewport' screenshots and not full page screenshots.If you set `fullPageScreenShot` to `true`, AppliTools takes full page screenshots for safari and chrome for you to visually compare pages. IE and Firefox drivers do take full page screenshots.
-
-### How to use
+## How to use
 Once nemo-eyes plugin is registered, `eyes` namespace will be attached to `nemo` and methods for visual testing are exposed. Idea is to,
 
 1. Initialize your application and test using `nemo.eyes.open('Sample Application','Homepage test');`
@@ -52,7 +54,18 @@ If base image for the window in question is present, new screenshot will be comp
         console.log(testResults.url);
     });
 ```
-### Running a sample visual test using Applitools.
+
+### Configuration
+
+Configure nemo-eyes via the `arguments` section in the plugin configuration as above.
+
+For any Eyes SDK method that can takes string arguments, you can program the Eyes SDK via the `sdk` section of the  `arguments` object.
+
+If you supply `"mock": true` or `"mock": "true"` via the config (as shown above), you can run your scripts without having to 
+duck-type around the eyes calls in your script. This is handy if you're working on other aspects of your script and do not want 
+to incur cost or any latency associated with calling out to Applitools.
+
+## Running a sample visual test using Applitools.
 1. In order to run a test you need to have an [Applitools account](https://applitools.com/sign-up/) (free track is available).
 1. Copy your API key from the [tutorial page](https://eyes.applitools.com/app/tutorial) (choose "Automated visual tests", then scroll down to step 4), and set it in nemo `examples/config/config.json` file.
 1. go to the repository's root folder and run `node examples/eyesTest.js`
