@@ -7,24 +7,46 @@ var Eyes = EyesSelenium.Eyes;
 var LogHandler = EyesSelenium.ConsoleLogHandler;
 module.exports = {
 
-    "setup": function (nemo, callback) {
-        nemo.eyes = new Eyes();
-        nemo.eyes.setApiKey(nemo.data.eyes.apiKey);
+    "setup": function (config, nemo, callback) {
+        if (config.mock && config.mock === "true") {
+            var emptyPromise = function (val) {
 
-        if(nemo.data.eyes.fullPageScreenShot) {
-            nemo.eyes.setForceFullPageScreenshot(true);
+                return function () {
+                    return nemo.driver.controlFlow().execute(function () {
+                        return nemo.wd.promise.fulfilled(val || 'fulfilled');
+                    });
+
+                }
+            };
+            nemo.eyes = {
+                open: emptyPromise(),
+                setBatch: function () {},
+                close: emptyPromise({isPassed: true, url: 'Eyes in mock mode.. No URL'}),
+                checkWindow: emptyPromise()
+            };
+            return callback(null);
         }
-        if (nemo.data.eyes.log) {
+
+        var eyes = nemo.eyes = new Eyes();
+        if (!config.sdk && config.sdk.setApiKey) {
+            return callback(new Error('nemo-eyes: apiKey is required'));
+        }
+        Object.keys(config.sdk).forEach(function (key) {
+            if (!nemo.eyes[key]) {
+                return;
+            }
+            if (config.sdk[key].constructor !== Array) {
+                return nemo.eyes[key](config.sdk[key]);
+            }
+            nemo.eyes[key].apply(config.sdk[key]);
+        });
+        if (config.log && config.log === "true" || config.log === true) {
             nemo.eyes.setLogHandler(new LogHandler(true));
         }
-
         var viewPort = {
-            'width' : nemo.data.eyes.width,
-            'height' : nemo.data.eyes.height
+            'width': (config.viewport && config.viewport.width) ? config.viewport.width : 1024,
+            'height': (config.viewport && config.viewport.height) ? config.viewport.height : 768,
         };
-        if(!viewPort.height || !viewPort.width) {
-            throw new Error('View port height and width should be provided as part of nemo config. Please check nemo-eyes documentation')
-        }
 
         /**
          * A wrapper function for {@code eyes.open} to allow parameters to be set in {@code nemo.data}.
@@ -33,8 +55,9 @@ module.exports = {
          * @returns {Promise} A promise which resolves when open is done.
          */
         nemo.eyes.open = function (appName, testName) {
+            //return this.constructor.prototype.open.call(this, nemo.driver, appName, testName,
             return this.constructor.prototype.open.call(this, nemo.driver, appName, testName,
-              viewPort);
+                viewPort);
         };
 
         /**

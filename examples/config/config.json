@@ -3,18 +3,25 @@
     "browser": "chrome"
   },
   "data": {
-    "baseUrl": "https://www.paypal.com",
-    "eyes" : {
-      "apiKey" : "yourAPIKey",
-      "log" : true,
-      "width" : 800,
-      "height" : 600,
-      "fullPageScreenShot" : true
-    }
+    "baseUrl": "https://www.paypal.com"
   },
   "plugins": {
-    "nemo-eyes": {
-      "module": "path:../"
+    "eyes": {
+      "module": "path:../",
+      "arguments": [
+        {
+          "sdk": {
+            "setApiKey": "env:applitools_api_key",
+            "setBatch": "desktop",
+            "setForceFullPageScreenshot": true
+          },
+          "viewport": {
+            "width": 1200,
+            "height": 600
+          },
+          "mock": "env:applitools_mock"
+        }
+      ]
     }
   }
 }
