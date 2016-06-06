@@ -1,10 +1,10 @@
 {
   "name": "nemo-eyes",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "dependencies": {
     "eyes.selenium": "^0.0.36"
   },
-  "devDependencies" : {
+  "devDependencies": {
     "nemo": "^1.0.6"
   },
   "repository": {
